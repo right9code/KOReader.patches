@@ -50,7 +50,9 @@ First Letter Focus is fully compound-consonant-aware. Conjunct characters (conso
 | Plain text | `.md`, `.txt` |
 
 ## Installation
-
+### Automatic Installation
+Available on [App Store Plugin](https://github.com/omer-faruq/appstore.koplugin)
+### Manual Installation
 1. Copy `2-fast-reading.lua` to your KOReader patches directory:
 
    ```
@@ -122,7 +124,8 @@ The following elements are **never** modified:
 1. In KOReader, use **Typeset → Restore all books** to revert every modified book.
 2. Delete `2-fast-reading.lua` from your patches directory.
 3. Restart KOReader.
-
+## Similar Patch with limited support
+[Check this](https://github.com/gmacahia/focus-reading.lua)
 ## License
 
 MIT — free to use, modify, and distribute.
