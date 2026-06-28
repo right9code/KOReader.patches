@@ -274,12 +274,12 @@ local ReadingInsightsDatabase = LuaSettings:open(database_file)
 
 --SETTINGS
 
-DEFAULTS = {
+local DEFAULTS = {
 			once_per_day = 1,
 			reload_all_data_after_sync = 0,
 }
 
-RI_SETT = ReadingInsightsDatabase:readSetting("RI_SETT") or DEFAULTS
+local RI_SETT = ReadingInsightsDatabase:readSetting("RI_SETT") or DEFAULTS
 
 for k, v in pairs(DEFAULTS) do
 	if not RI_SETT[k] then 
@@ -362,7 +362,7 @@ local function clearCacheIfRequired() -- checks and calls clearCache() as per re
     t.sec = 0
     local ts_midnight_today = os.time(t)
 	
-    latest_db_mod_timestamp = getDbModTime() 
+    local latest_db_mod_timestamp = getDbModTime() 
 
 	if RI_SETT.once_per_day == 1 and (cache_timestamps.lastRefreshed > ts_midnight_today) then return end	
 	
@@ -1404,10 +1404,10 @@ local function buildInsightsSections(popup_self, streaks, yearly_stats, yearRang
     return sections
 end
 
-Dispatcher:registerAction("reading_insights_popup", {
+Dispatcher:registerAction("reading_insights_popup_v2", {
     category = "none",
-    event = "ShowReadingInsightsPopup",
-    title = _("Reading statistics: reading insights"),
+    event = "ShowReadingInsightsPopupV2",
+    title = _("Reading statistics: insights (v2)"),
     general = true,
 })
 
@@ -2045,7 +2045,7 @@ function ReadingInsightsPopup:onCloseWidget()
 end
 
 -- Hook into ReaderUI to handle the event
-function ReaderUI.onShowReadingInsightsPopup(this)
+function ReaderUI:onShowReadingInsightsPopupV2()
     local popup = ReadingInsightsPopup:new{
         ui = this,
     }
@@ -2053,7 +2053,7 @@ function ReaderUI.onShowReadingInsightsPopup(this)
     return true
 end
 
-function FileManager:onShowReadingInsightsPopup()
+function FileManager:onShowReadingInsightsPopupV2()
     local popup = ReadingInsightsPopup:new{
         ui = this,
     }

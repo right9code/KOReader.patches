@@ -967,6 +967,8 @@ function ReaderUI:onQuickLook()
     UIManager:show(widget, "ui", widget.dimen)
 end
 
+local ReaderUI_onEndOfBook_original = ReaderUI.onEndOfBook
+
 function ReaderUI:onEndOfBook()
     if self.statistics then
         self.statistics:insertDB()
@@ -983,6 +985,10 @@ function ReaderUI:onEndOfBook()
         }
 
         UIManager:show(widget, "ui", widget.dimen)
+    end
+
+    if ReaderUI_onEndOfBook_original then
+        return ReaderUI_onEndOfBook_original(self)
     end
 end
 

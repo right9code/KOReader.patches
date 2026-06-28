@@ -1151,16 +1151,16 @@ end
 -- ADD TO DISPATCHER
 
 Dispatcher:registerAction(
-    "quicklookbox_action",
+    "quicklookbox_action_mini",
     {
         category = "none",
-        event = "QuickLook",
+        event = "QuickLookMini",
         title = _("Mini Receipt"),
         general = true
     }
 )
 
-function ReaderUI:onQuickLook()
+function ReaderUI:onQuickLookMini()
     if self.statistics then
         self.statistics:insertDB()
     end
@@ -1176,6 +1176,8 @@ function ReaderUI:onQuickLook()
 
     UIManager:show(widget, "ui", widget.dimen)
 end
+
+local ReaderUI_onEndOfBook_original = ReaderUI.onEndOfBook
 
 function ReaderUI:onEndOfBook()
     if self.statistics then
@@ -1194,9 +1196,13 @@ function ReaderUI:onEndOfBook()
 
         UIManager:show(widget, "ui", widget.dimen)
     end
+
+    if ReaderUI_onEndOfBook_original then
+        return ReaderUI_onEndOfBook_original(self)
+    end
 end
 
-function FileManager:onQuickLook()
+function FileManager:onQuickLookMini()
     if self.statistics then
         self.statistics:insertDB()
     end
