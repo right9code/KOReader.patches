@@ -1,18 +1,18 @@
 -- ╔══════════════════════════════════════════════════════════════════╗
--- ║  Fast Reading — KOReader Patch (Final)                         ║
--- ║                                                                ║
--- ║  Three reading-enhancement modes in a single patch:            ║
--- ║    1. Bionic Reading — bolds the first half of each word       ║
--- ║    2. Guided Dots    — places a middle-dot (·) between words  ║
--- ║    3. First Letter Focus — bolds the first letter/syllable    ║
--- ║                        each word (Devanagari-compound-aware)   ║
--- ║                                                                ║
--- ║  Supported formats: EPUB, KEPUB, XHTML, HTML, HTM, MD, TXT    ║
--- ║  Menu location:     Typeset tab → above "Typography"           ║
--- ║                                                                ║
--- ║  Features can be combined (e.g. Guided Dots + Bionic).         ║
--- ║  Bionic and First Letter Focus are mutually exclusive.         ║
--- ║  "Restore all books" undoes every modified book at once.       ║
+-- ║  Fast Reading — KOReader Patch (Fi                               ║
+-- ║                                                                  ║
+-- ║  Three reading-enhancement modes in a single patch:              ║
+-- ║    1. Bionic Reading — bolds the first half of each word         ║
+-- ║    2. Guided Dots    — places a middle-dot (·) between words     ║
+-- ║    3. First Letter Focus — bolds the first letter/syllable       ║
+-- ║                        each word (Devanagari-compound-aware)     ║
+-- ║                                                                  ║
+-- ║  Supported formats: EPUB, KEPUB, XHTML, HTML, HTM, MD, TXT       ║
+-- ║  Menu location:     Typeset tab → above "Typography"             ║
+-- ║                                                                  ║
+-- ║  Features can be combined (e.g. Guided Dots + Bionic).           ║
+-- ║  Bionic and First Letter Focus are mutually exclusive.           ║
+-- ║  "Restore all books" undoes every modified book at once.         ║
 -- ╚══════════════════════════════════════════════════════════════════╝
 
 local userpatch = require("userpatch")
